@@ -1,9 +1,12 @@
 package com.thomascd.carrental.stepdefinitions;
 
 import io.cucumber.java.fr.*;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.BeforeEach;
 
 import com.thomascd.carrental.model.Car;
 import com.thomascd.carrental.service.CarRentalService;
@@ -17,6 +20,13 @@ public class CarStepDefinitions {
 
     @LocalServerPort
     private int port;
+
+    @BeforeEach
+    public void setUp() {
+    RestAssured.baseURI = "http://localhost";
+    RestAssured.port = port;
+    RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+    }
 
     @Autowired
     private CarRentalService carRentalService = new CarRentalService();
