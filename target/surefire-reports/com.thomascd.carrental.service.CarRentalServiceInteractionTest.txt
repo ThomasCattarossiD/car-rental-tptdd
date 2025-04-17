@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.thomascd.carrental.service.CarRentalServiceInteractionTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.423 s -- in com.thomascd.carrental.service.CarRentalServiceInteractionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.607 s -- in com.thomascd.carrental.service.CarRentalServiceInteractionTest
