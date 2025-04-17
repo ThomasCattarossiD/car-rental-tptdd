@@ -3,6 +3,8 @@ package com.thomascd.carrental.service;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.thomascd.carrental.model.Car;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
