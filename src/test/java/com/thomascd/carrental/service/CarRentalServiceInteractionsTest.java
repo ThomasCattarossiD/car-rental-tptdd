@@ -1,9 +1,10 @@
 package com.thomascd.carrental.service;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
+import org.junit.jupiter.api.Test; // (JUnit 5)
 import org.mockito.Mock;
+import org.mockito.InjectMocks;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.MockitoAnnotations;
 
 import com.thomascd.carrental.model.Car;
