@@ -12,7 +12,7 @@ import java.util.Optional;
 public class CarRentalService {
 
     @Autowired
-    private CarRepository carRepository;
+    private CarRepository carRepository = new CarRepository();
 
     public List<Car> getAllCars() {
         return carRepository.getAllCars();
