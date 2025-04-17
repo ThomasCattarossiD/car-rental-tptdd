@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 class CarRentalServiceTest {
@@ -122,4 +123,34 @@ class CarRentalServiceTest {
         // Assert
         verify(carRepository, never()).updateCar(any());
     }
+
+    @Test
+    void addCar_shouldSuccess_whenRegistrationNumberIsUnique() {
+        // Arrange
+        Car newCar = new Car("NEW123", "Tesla", true);
+        when(carRepository.findByRegistrationNumber("NEW123")).thenReturn(Optional.empty());
+        
+        // Act
+        boolean result = carRentalService.addCar(newCar);
+        
+        // Assert
+        assertTrue(result);
+        verify(carRepository).addCar(newCar);
+    }
+
+    @Test
+    void addCar_shouldFail_whenRegistrationNumberExists() {
+        // Arrange
+        Car existingCar = new Car("EXIST123", "BMW", true);
+        when(carRepository.findByRegistrationNumber("EXIST123"))
+            .thenReturn(Optional.of(existingCar));
+        
+        // Act
+        boolean result = carRentalService.addCar(existingCar);
+        
+        // Assert
+        assertFalse(result);
+        verify(carRepository, never()).addCar(any());
+    }
+
 }
