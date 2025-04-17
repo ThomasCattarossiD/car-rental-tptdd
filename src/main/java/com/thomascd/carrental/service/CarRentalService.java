@@ -35,4 +35,13 @@ public class CarRentalService {
             carRepository.updateCar(c);
         });
     }
+
+    public boolean addCar(Car car) {
+        if (carRepository.findByRegistrationNumber(car.getRegistrationNumber()).isEmpty()) {
+            carRepository.addCar(car);
+            return true;
+        }
+        return false;
+    }
+    
 }
