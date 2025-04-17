@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.thomascd</groupId>
 	<artifactId>carrental</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<name>carrental</name>
 	<description>Projet Travail Pratique TDD carrental</description>
 	<url/>

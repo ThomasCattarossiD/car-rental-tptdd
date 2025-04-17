@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -124,6 +125,8 @@ class CarRentalServiceTest {
         verify(carRepository, never()).updateCar(any());
     }
 
+    // Tests pour addCar (partie 2.1)
+
     @Test
     void addCar_shouldSuccess_whenRegistrationNumberIsUnique() {
         // Arrange
@@ -152,5 +155,37 @@ class CarRentalServiceTest {
         assertFalse(result);
         verify(carRepository, never()).addCar(any());
     }
+
+    // Tests pour searchByModel (partie 2.2)
+
+    @Test
+    void searchByModel_shouldReturnMatchingCars() {
+        // Arrange
+        List<Car> expectedCars = List.of(
+            new Car("TES123", "Tesla", true),
+            new Car("TES456", "Tesla", false)
+        );
+        when(carRepository.findByModel("Tesla")).thenReturn(expectedCars);
+        
+        // Act
+        List<Car> result = carRentalService.searchByModel("Tesla");
+        
+        // Assert
+        assertEquals(2, result.size());
+        assertTrue(result.stream().allMatch(c -> c.getModel().equals("Tesla")));
+    }
+
+    @Test
+    void searchByModel_shouldReturnEmptyList_whenNoMatches() {
+        // Arrange
+        when(carRepository.findByModel("Audi")).thenReturn(Collections.emptyList());
+        
+        // Act
+        List<Car> result = carRentalService.searchByModel("Audi");
+        
+        // Assert
+        assertTrue(result.isEmpty());
+    }
+
 
 }
