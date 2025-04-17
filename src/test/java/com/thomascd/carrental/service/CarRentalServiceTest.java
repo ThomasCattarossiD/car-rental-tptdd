@@ -1,8 +1,6 @@
 package com.thomascd.carrental.service;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
 import com.thomascd.carrental.model.Car;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +15,6 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
 class CarRentalServiceTest {
 
     @Mock
