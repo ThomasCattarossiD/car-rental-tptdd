@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.thomascd.carrental.model.Car;
@@ -42,6 +43,12 @@ public class CarController {
         return ResponseEntity.ok("Voiture ajoutée avec succès");
     }
     return ResponseEntity.badRequest().body("Le numéro d'immatriculation existe déjà");
-}
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Car>> searchByModel(@RequestParam String model) {
+    List<Car> cars = carRentalService.searchByModel(model);
+    return ResponseEntity.ok(cars);
+    }
 
 }

@@ -44,4 +44,9 @@ public class CarRentalService {
         return false;
     }
     
+    public List<Car> searchByModel(String model) {
+        return carRepository.findByModel(model);
+    }
+    
+    
 }
