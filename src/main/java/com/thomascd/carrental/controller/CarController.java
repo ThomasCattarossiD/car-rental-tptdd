@@ -1,7 +1,9 @@
-package com.example.rental;
+package com.thomascd.carrental.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
+import com.thomascd.carrental.model.Car;
+import com.thomascd.carrental.service.CarRentalService;
 
 import java.util.List;
 
